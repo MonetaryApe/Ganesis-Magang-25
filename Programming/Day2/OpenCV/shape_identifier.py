@@ -4,15 +4,18 @@ import numpy as np
 # Reading the image
 img = cv2.imread('fuzzy.png')
 img = cv2.resize(img, (1280, 720))
+
 # Converting image into grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 cv2.imshow("Gray",gray)
+
 # Convert BGR to HSV
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 cv2.imshow("hsv",hsv)
+
 # Define HSV range for blue (adjust as needed)
-lower_blue = np.array([80, 140, 50])
-upper_blue = np.array([100, 255, 255])
+lower_blue = np.array([90, 220, 50])
+upper_blue = np.array([95, 255, 255])
 
 # Threshold the HSV image to get only blue colors
 mask = cv2.inRange(hsv, lower_blue, upper_blue)
